@@ -10,7 +10,7 @@ function App() {
       <Navbar title="Textutil"  />
       {/* <Navbar  /> */}
       <div className="container">
-        <TextForm  heading="Enter the text to Analyze"/>
+        <TextForm  heading="Enter the text to Convert Lowercase to UpperCase Letter "/>
       </div>
       
     </>
