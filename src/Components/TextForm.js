@@ -41,6 +41,13 @@ const TextForm = (props) => {
     //     setText(newText)
     // }
 
+    const handleCopy=()=>{
+        window.confirm("Test copied to clipbord")
+        var text = document.getElementById('copyBtn')
+        text.select();
+        text.setSelectionRange(0,9999);
+        navigator.clipboard.writeText(text.value)
+    }
     const handleonChange = (event)=>{
         setText(event.target.value)
     }
@@ -57,6 +64,7 @@ const TextForm = (props) => {
                 <button className='btn btn-primary mx-1'  onClick={handleLoClick}>Convert to LoweerCase</button>
                 {/* <button className='btn btn-primary mx-1'  onClick={TitleCaseClick}>Convert to TitleCase</button> */}
                 <button className='btn btn-primary mx-1'  onClick={ClearClick}>Clear</button>
+                <button className='btn btn-primary mx-1' id='copyBtn' onClick={handleCopy}>CopyToClipBoard</button>
             </div>
 
             <div className="container">

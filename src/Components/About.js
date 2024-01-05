@@ -13,17 +13,17 @@ import React,{useState} from 'react';
 
 const About = () => {
     const [DarkMEnable,setDarkMEnable]=useState({
-        background: 'black',
-        color: 'white',
+        background: 'white',
+        color: 'black',
         border: '2px solid white',
     })
     const [DarkMBtn,setDarkMBtn] = useState({
-        background: '#2f3cff',
-        color: 'black',
-        border: '2px solid white',
+        background: 'dark',
+        color: 'white',
+        border: '2px solid red',
         fontSize: 'large'
     })
-    const [btnText,setBtnText] = useState("Light Mode")
+    const [btnText,setBtnText] = useState("Dark Mode")
 
     const EnableMode = ()=>{
         if (DarkMEnable.color === 'white') {
@@ -36,7 +36,7 @@ const About = () => {
             setDarkMBtn({
                 background: 'black',
                 color: 'white',
-                border: '2px solid yellow',
+                border: '2px solid red',
                 fontSize: 'large'
             })
             setBtnText("Dark Mode")
