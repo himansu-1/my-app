@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 // import styled from 'styled-components';
 // import PropTypes from 'prop-types';
 
@@ -11,63 +11,17 @@ import React,{useState} from 'react';
 
 // }
 
-const About = () => {
-    const [DarkMEnable,setDarkMEnable]=useState({
-        background: 'white',
-        color: 'black',
-        border: '2px solid white',
-    })
-    const [DarkMBtn,setDarkMBtn] = useState({
-        background: 'dark',
-        color: 'white',
-        border: '2px solid red',
-        fontSize: 'large'
-    })
-    const [btnText,setBtnText] = useState("Dark Mode")
+const About = (props) => {
 
-    const EnableMode = ()=>{
-        if (DarkMEnable.color === 'white') {
-            setDarkMEnable({
-                background: 'white',
-                color: 'black',
-                border: '2px solid white',
-                fontSize: 'large'
-            })
-            setDarkMBtn({
-                background: 'black',
-                color: 'white',
-                border: '2px solid red',
-                fontSize: 'large'
-            })
-            setBtnText("Dark Mode")
-        }
-        else{
-            setDarkMEnable({
-                background: 'black',
-                color: 'white',
-                border: '2px solid white',
-            })
-            setDarkMBtn({
-                background: '#2f3cff',
-                color: 'black',
-                border: '2px solid white',
-                fontSize: 'large'
-            })
-            setBtnText("Light Mode")
-
-        }
-
-    }
-    
 
     return (
         <>
-            <div className="container my-2 " style={DarkMEnable}>
+            <div className="container my-2 " style={props.style_2}>
                 <h1 >Abour My Website</h1>
                 <div className="accordion 5 my-2" id="accordionExample" >
-                    <div className="accordion-item" style={DarkMEnable}>
+                    <div className="accordion-item" style={props.style_1}>
                         <h2 className="accordion-header">
-                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style={DarkMEnable}>
+                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style={props.style_2}>
                                 Accordion Item #1
                             </button>
                         </h2>
@@ -77,9 +31,9 @@ const About = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="accordion-item" style={DarkMEnable}>
+                    <div className="accordion-item"  style={props.style_1}>
                         <h2 className="accordion-header">
-                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style={DarkMEnable}>
+                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style={props.style_2}>
                                 Accordion Item #2
                             </button>
                         </h2>
@@ -89,9 +43,9 @@ const About = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="accordion-item " style={DarkMEnable}>
+                    <div className="accordion-item "  style={props.style_1}>
                         <h2 className="accordion-header">
-                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style={DarkMEnable}>
+                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style={props.style_2}>
                                 Accordion Item #3
                             </button>
                         </h2>
@@ -103,7 +57,7 @@ const About = () => {
                     </div>
                 </div>
                 <div className="container my-2 textalign-center text-center" >
-                    <button type="button" className="btn btn-dark" onClick={EnableMode} style={DarkMBtn}>{btnText}</button>
+                    <button type="button" className="btn btn-dark"  ></button>
 
                 </div>
             </div>

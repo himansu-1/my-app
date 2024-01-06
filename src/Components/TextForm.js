@@ -54,22 +54,23 @@ const TextForm = (props) => {
 
     return (
         <>
-            <div className='container my-3'>
+            <div className='container my-3' style={props.style}>
                 <h1>{props.heading}</h1>
-                <div className="mb-3">
+                <div className="mb-1 ">
                     <label htmlFor="exampleFormControlTextarea1" className="form-label">Example textarea</label>
                     <textarea className="form-control" value={text} onChange={handleonChange} id="exampleFormControlTextarea1" rows="8"></textarea>
                 </div>
-                <button className='btn btn-primary' onClick={handleUpClick}>Convert to UpperCase</button>
+                <button className='btn btn-primary mx-1' onClick={handleUpClick}>Convert to UpperCase</button>
                 <button className='btn btn-primary mx-1'  onClick={handleLoClick}>Convert to LoweerCase</button>
                 {/* <button className='btn btn-primary mx-1'  onClick={TitleCaseClick}>Convert to TitleCase</button> */}
                 <button className='btn btn-primary mx-1'  onClick={ClearClick}>Clear</button>
-                <button className='btn btn-primary mx-1' id='copyBtn' onClick={handleCopy}>CopyToClipBoard</button>
+                <button className='btn btn-primary mx-1 my-2' id='copyBtn' onClick={handleCopy}>CopyToClipBoard</button>
             </div>
 
-            <div className="container">
+            <div className="container" style={props.style}>
                 <h1>Your text Summery</h1>
                 <p>{text.split(" ").length} words and {text.length} characters</p>
+                <hr />
                 <h2>Preview</h2>
                 <p>{text}</p>
             </div>
