@@ -103,7 +103,7 @@ const About = () => {
                     </div>
                 </div>
                 <div className="container my-2 textalign-center text-center" >
-                    <button type="button" class="btn btn-dark" onClick={EnableMode} style={DarkMBtn}>{btnText}</button>
+                    <button type="button" className="btn btn-dark" onClick={EnableMode} style={DarkMBtn}>{btnText}</button>
 
                 </div>
             </div>
