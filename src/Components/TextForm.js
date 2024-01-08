@@ -14,18 +14,23 @@ const TextForm = (props) => {
         // console.log("You clicked the button : " + text)
         const newText = text.toUpperCase()
         setText(newText)
+        props.showAlert("Success","Converted to UpperCase")
     }
 
     const handleLoClick = ()=>{
         // console.log("You clicked the button : " + text)
         const newText = text.toLowerCase()
         setText(newText)
+        props.showAlert("Success","Converted to LowerCase")
+
     }
 
     const ClearClick = ()=>{
         // console.log("You clicked the button : " + text)
         const newText = ""
         setText(newText)
+        props.showAlert("Success","All text Cleared")
+
     }
 
     // const TitleCaseClick = ()=>{

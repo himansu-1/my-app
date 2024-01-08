@@ -3,10 +3,23 @@ import './App.css';
 import Navbar from './Components/Navbar'
 import TextForm from './Components/TextForm'
 import About from './Components/About';
+import Alert from './Components/Alert';
 import React, { useState } from 'react';
 
 
 function App() {
+  const [alert,setalert] = useState(null)
+  const showAlert = (message,type)=>{
+    setalert({
+      message : message,
+      type:type,
+    })
+    setTimeout(() => {
+      setalert(null)
+    }, 1500);
+  }
+
+
   const [accordianItem,setAccordianItem]=useState({
     color : 'black',
     // border:'2px solid',
@@ -45,6 +58,8 @@ function App() {
         background:'#666',
         borderRadius: '8px'
       })
+
+      showAlert("Success","DarkMode is Enabled")
     }
     else {
       document.body.style.background = "white"
@@ -65,15 +80,17 @@ function App() {
         // border:'1px solid',
         background:'white'
       })
-    }
 
+      showAlert("Success","DarkMode is Disabled")
+    }
   }
   return (
     <>
       <Navbar title="Textutil" changeMode={changeMode} style={navStyle} />
       {/* <Navbar  /> */}
+      <Alert alert={alert}/>
       <About style_1={accordianItem} style_2={bordering}/>
-      <TextForm heading="Enter the text to Convert Lowercase to UpperCase Letter " style={bordering}/>
+      <TextForm heading="Enter the text to Convert Lowercase to UpperCase Letter " style={bordering} showAlert={showAlert}/>
 
 
     </>
