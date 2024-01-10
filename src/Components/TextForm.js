@@ -8,7 +8,7 @@ import React,{useState} from 'react';
 
 const TextForm = (props) => {
 
-    const [text,setText] = useState("Enter Text Here")
+    const [text,setText] = useState("")
 
     const handleUpClick = ()=>{
         // console.log("You clicked the button : " + text)
@@ -64,12 +64,12 @@ const TextForm = (props) => {
                 <div className="mb-1 ">
                     <label htmlFor="exampleFormControlTextarea1" className="form-label">Example textarea</label>
                     <textarea className="form-control" value={text} onChange={handleonChange} id="exampleFormControlTextarea1" rows="8"></textarea>
-                </div>
-                <button className='btn btn-primary mx-1' onClick={handleUpClick}>Convert to UpperCase</button>
-                <button className='btn btn-primary mx-1'  onClick={handleLoClick}>Convert to LoweerCase</button>
-                {/* <button className='btn btn-primary mx-1'  onClick={TitleCaseClick}>Convert to TitleCase</button> */}
-                <button className='btn btn-primary mx-1'  onClick={ClearClick}>Clear</button>
-                <button className='btn btn-primary mx-1 my-2' id='copyBtn' onClick={handleCopy}>CopyToClipBoard</button>
+                </div >
+                <button disabled={text.length === 0} className='btn btn-primary mx-1' onClick={handleUpClick}>Convert to UpperCase</button>
+                <button disabled={text.length === 0} className='btn btn-primary mx-1'  onClick={handleLoClick}>Convert to LoweerCase</button>
+                {/* <button disabled={text.length === 0} className='btn btn-primary mx-1'  onClick={TitleCaseClick}>Convert to TitleCase</button> */}
+                <button disabled={text.length === 0} className='btn btn-primary mx-1'  onClick={ClearClick}>Clear</button>
+                <button disabled={text.length === 0} className='btn btn-primary mx-1 my-2' id='copyBtn' onClick={handleCopy}>CopyToClipBoard</button>
             </div>
 
             <div className="container" style={props.style}>

@@ -5,14 +5,19 @@ import TextForm from './Components/TextForm'
 import About from './Components/About';
 import Alert from './Components/Alert';
 import React, { useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
 
+} from "react-router-dom";
 
 function App() {
-  const [alert,setalert] = useState(null)
-  const showAlert = (message,type)=>{
+  const [alert, setalert] = useState(null)
+  const showAlert = (message, type) => {
     setalert({
-      message : message,
-      type:type,
+      message: message,
+      type: type,
     })
     setTimeout(() => {
       setalert(null)
@@ -20,15 +25,16 @@ function App() {
   }
 
 
-  const [accordianItem,setAccordianItem]=useState({
-    color : 'black',
+  const [accordianItem, setAccordianItem] = useState({
+    color: 'black',
     // border:'2px solid',
-    background:'transparent'
+    background: 'transparent'
   })
-  const [bordering,setbordering]=useState({
-    color : 'black',
+  const [bordering, setbordering] = useState({
+    color: 'black',
     // border:'2px solid',
-    background:'transparent'
+    background: 'transparent',
+    textAlign:'left'
   })
 
 
@@ -48,18 +54,20 @@ function App() {
       })
 
       setAccordianItem({
-        color : 'white',
-        border:'1px solid',
-        background:'transparent'
+        color: 'white',
+        border: '1px solid',
+        background: 'transparent'
       })
       setbordering({
-        color : 'white',
-        border:'1px solid',
-        background:'#666',
+        color: 'white',
+        border: '1px solid',
+        background: '#666',
         borderRadius: '8px'
       })
-
-      showAlert("Success","DarkMode is Enabled")
+      // setInterval(() => {
+      //   document.title = "MyProject-DarkMode"
+      // }, 2000);
+      showAlert("Success", "DarkMode is Enabled")
     }
     else {
       document.body.style.background = "white"
@@ -71,28 +79,47 @@ function App() {
       })
 
       setAccordianItem({
-        color : 'black',
+        color: 'black',
         // border:'2px solid',
-        background:'transparent'
+        background: 'transparent'
       })
       setbordering({
-        color : 'black',
+        color: 'black',
         // border:'1px solid',
-        background:'white'
+        background: 'white'
       })
-
-      showAlert("Success","DarkMode is Disabled")
+      // setInterval(() => {
+      //   document.title = "MyProject-LightkMode"
+      // }, 1500);
+      showAlert("Success", "DarkMode is Disabled")
     }
   }
   return (
     <>
-      <Navbar title="Textutil" changeMode={changeMode} style={navStyle} />
-      {/* <Navbar  /> */}
-      <Alert alert={alert}/>
-      <About style_1={accordianItem} style_2={bordering}/>
-      <TextForm heading="Enter the text to Convert Lowercase to UpperCase Letter " style={bordering} showAlert={showAlert}/>
 
+      <Router>
+        <Navbar title="Textutil" changeMode={changeMode} style={navStyle} />
+        {/* <Navbar  /> */}
+        <Alert alert={alert} />
+        <div className="App">
 
+          <Routes>
+            <Route exact path="/" element={
+              <>
+                <About style_1={accordianItem} style_2={bordering} />
+                <TextForm heading="Enter the text to Convert Lowercase to UpperCase Letter " style={bordering} showAlert={showAlert} />
+              </>
+            }>
+            </Route>
+            <Route exact path="/about" element={<About style_1={accordianItem} style_2={bordering} />}>
+
+            </Route>
+            <Route exact path="/home" element={<TextForm heading="Enter the text to Convert Lowercase to UpperCase Letter " style={bordering} showAlert={showAlert} />}>
+
+            </Route>
+          </Routes>
+        </div>
+      </Router>
     </>
   );
 }

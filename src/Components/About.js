@@ -16,7 +16,7 @@ const About = (props) => {
 
     return (
         <>
-            <div className="container my-2 " style={props.style_2}>
+            <div className="container my-2 " style={props.style_2} >
                 <h1 >Abour My Website</h1>
                 <div className="accordion 5 my-2" id="accordionExample" >
                     <div className="accordion-item" style={props.style_1}>
